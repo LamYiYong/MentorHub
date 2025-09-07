@@ -15,8 +15,9 @@
 - **Student UI (Figma):** https://www.figma.com/proto/aD1LDJKTqjPgi6PcNHZy2y/Student-Tutor-App?node-id=152-58&t=hNNNVDmycT5eXBuW-1  
 - **Tutor UI (Figma):** https://www.figma.com/proto/aD1LDJKTqjPgi6PcNHZy2y/Student-Tutor-App?node-id=1-2&t=hNNNVDmycT5eXBuW-1  
 - **Admin UI (Figma):** https://www.figma.com/proto/aD1LDJKTqjPgi6PcNHZy2y/Student-Tutor-App?node-id=1-3&t=hNNNVDmycT5eXBuW-1  
-- **Presentation Slides:** https://mmuedumy-my.sharepoint.com/:p:/g/personal/1221303302_student_mmu_edu_my/EYY_rP9powdNpUlEZhjPJF0BS1PdqKdy7iJbUOYmGbUqHw?e=LvCOO0  
-- **Video Demo:** `YOUR_VIDEO_LINK_HERE`
+- **Presentation Slides(in PowerPoint):** https://mmuedumy-my.sharepoint.com/:p:/g/personal/1221303302_student_mmu_edu_my/EYY_rP9powdNpUlEZhjPJF0BS1PdqKdy7iJbUOYmGbUqHw?e=LvCOO0
+- **Presentation Slides(in PDF):**  https://mmuedumy-my.sharepoint.com/:b:/g/personal/1221303302_student_mmu_edu_my/EVKB3RZ6fNBNjBX5SW6vYJEBBNbkOJrr3nRO0GXjXftYAA?e=IIlx9e
+- **Video Demo:** https://youtu.be/6ePWS9d39So
 
 ---
 
