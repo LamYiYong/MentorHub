@@ -30,7 +30,7 @@
 - 🔔 **Notifications**: session reminders, approvals
 - ☁️ **Cloud-ready**: Firebase (Auth/Firestore/FCM/Storage)
 
-> **Tech**: Flutter & Dart · Riverpod (state) · GoRouter (routing) · Freezed/JSON Serializable (models) · Firebase (backend)
+> **Tech**: Flutter & Dart · Firebase (backend)
 
 ---
 
