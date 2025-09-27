@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "807737609161",
+    "project_id": "mentorhub-qc33",
+    "storage_bucket": "mentorhub-qc33.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807737609161:android:e85244cd6cc445b1f7f618",
+        "android_client_info": {
+          "package_name": "com.example.mentorhub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt_jJVoaLctlXWMesepRwGQm1CCCjs6jE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
