@@ -47,16 +47,17 @@ class _LoginPageState extends State<LoginPage> {
       final code = e.code;
       final msg = e.message ?? "Unknown error";
 
-      // 控制台也打印，便于排查
       debugPrint("🔥 Firebase login error: $code - $msg");
 
       if (!mounted) return;
+      setState(() => isLoading = false); // 🔥 reset here
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text("Login failed\n[$code] $msg")));
     } catch (e) {
       debugPrint("🔥 Unexpected login error: $e");
       if (!mounted) return;
+      setState(() => isLoading = false); // 🔥 reset here too
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text("Unexpected error: $e")));
