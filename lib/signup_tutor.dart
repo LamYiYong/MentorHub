@@ -13,10 +13,10 @@ class SignUpTutorPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Full Name
+              // Username
               const TextField(
                 decoration: InputDecoration(
-                  labelText: "Full Name",
+                  labelText: "Username",
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -26,15 +26,6 @@ class SignUpTutorPage extends StatelessWidget {
               const TextField(
                 decoration: InputDecoration(
                   labelText: "Email",
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20),
-
-              // Username
-              const TextField(
-                decoration: InputDecoration(
-                  labelText: "Username",
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -55,6 +46,14 @@ class SignUpTutorPage extends StatelessWidget {
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: "Confirm Password",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              const TextField(
+                decoration: InputDecoration(
+                  labelText: "Instituton",
                   border: OutlineInputBorder(),
                 ),
               ),

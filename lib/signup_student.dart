@@ -76,11 +76,11 @@ class _SignUpStudentPageState extends State<SignUpStudentPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Full Name
+            // Username
               TextField(
-                controller: fullNameController,
+                controller: usernameController,
                 decoration: const InputDecoration(
-                  labelText: "Full Name",
+                  labelText: "Username",
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -95,17 +95,7 @@ class _SignUpStudentPageState extends State<SignUpStudentPage> {
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Username
-              TextField(
-                controller: usernameController,
-                decoration: const InputDecoration(
-                  labelText: "Username",
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20),
-
+            
               // Password
               TextField(
                 controller: passwordController,

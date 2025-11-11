@@ -43,7 +43,7 @@ class RolePage extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Text("Sign Up"),
+                  child: const Text("Tutor"),
                 ),
               ),
             ],
