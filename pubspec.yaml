@@ -31,8 +31,14 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_markdown: ^0.7.7+1
+
   firebase_core: ^4.1.1
   firebase_auth: ^6.1.0
+  google_generative_ai: ^0.4.7
+  flutter_dotenv: ^6.0.0
+  file_picker: ^10.3.7
+  syncfusion_flutter_pdf: ^31.2.18
 
 dev_dependencies:
   flutter_test:
