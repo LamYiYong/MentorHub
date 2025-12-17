@@ -43,7 +43,7 @@ class _ChatPageState extends State<ChatPage> {
 
     _model = GenerativeModel(
       model: 'gemini-2.5-flash',
-      apiKey: 'AIzaSyDPiew5Byj8zv6uWcGvP3sOkRui4DkoX-Y', // ⚠️ Required
+      apiKey: '', // ⚠️ Required
     );
 
     _chatSession = _model.startChat();
