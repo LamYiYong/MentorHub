@@ -14,6 +14,14 @@ class ChatPage extends StatefulWidget {
   State<ChatPage> createState() => _ChatPageState();
 }
 
+/// Simple message model (UI only)
+class ChatMessage {
+  final String text;
+  final bool isUser;
+
+  ChatMessage({required this.text, required this.isUser});
+}
+
 class _ChatPageState extends State<ChatPage> {
   late final GenerativeModel _model;
   late final ChatSession _chatSession;
@@ -21,6 +29,8 @@ class _ChatPageState extends State<ChatPage> {
   final TextEditingController _textController = TextEditingController();
   final FocusNode _textFieldFocus = FocusNode();
   final ScrollController _scrollController = ScrollController();
+
+  final List<ChatMessage> _messages = [];
 
   bool _loading = false;
 
@@ -33,7 +43,7 @@ class _ChatPageState extends State<ChatPage> {
 
     _model = GenerativeModel(
       model: 'gemini-2.5-flash',
-      apiKey: '', // ⚠️ replace
+      apiKey: 'AIzaSyDPiew5Byj8zv6uWcGvP3sOkRui4DkoX-Y', // ⚠️ Required
     );
 
     _chatSession = _model.startChat();
@@ -70,41 +80,43 @@ class _ChatPageState extends State<ChatPage> {
   Future<void> _sendChatMessage(String message) async {
     if (message.trim().isEmpty) return;
 
+    // 1️⃣ Show ONLY what user typed
     setState(() {
+      _messages.add(ChatMessage(text: message, isUser: true));
       _loading = true;
     });
 
     try {
-      final prompt = _pdfText == null
+      // 2️⃣ Hidden AI prompt (NOT shown in UI)
+      final aiPrompt = _pdfText == null
           ? message
           : '''
-You are given the following document content:
+You are an assistant that answers questions using ONLY the document below.
 
+Document:
 $_pdfText
 
-Answer the user's question based ONLY on the document above.
-
-Question:
+User question:
 $message
 ''';
 
       final response =
-          await _chatSession.sendMessage(Content.text(prompt));
+          await _chatSession.sendMessage(Content.text(aiPrompt));
 
-      if (response.text == null) {
-        _showError('No response from Gemini.');
-      } else {
-        setState(() {});
-        _scrollDown();
+      if (response.text != null) {
+        setState(() {
+          _messages.add(
+            ChatMessage(text: response.text!, isUser: false),
+          );
+        });
       }
     } catch (e) {
       _showError(e.toString());
     } finally {
       _textController.clear();
       _textFieldFocus.requestFocus();
-      setState(() {
-        _loading = false;
-      });
+      setState(() => _loading = false);
+      _scrollDown();
     }
   }
 
@@ -118,6 +130,7 @@ $message
       ),
       body: Column(
         children: [
+          // PDF banner
           if (_pdfFileName != null)
             Container(
               width: double.infinity,
@@ -129,23 +142,17 @@ $message
               ),
             ),
 
+          // Chat list
           Expanded(
             child: ListView.builder(
               controller: _scrollController,
               padding: const EdgeInsets.all(12),
-              itemCount: _chatSession.history.length,
+              itemCount: _messages.length,
               itemBuilder: (context, index) {
-                final content =
-                    _chatSession.history.toList()[index];
-
-                final text = content.parts
-                    .whereType<TextPart>()
-                    .map((e) => e.text)
-                    .join();
-
+                final msg = _messages[index];
                 return MessageWidget(
-                  text: text,
-                  isFromUser: content.role == 'user',
+                  text: msg.text,
+                  isFromUser: msg.isUser,
                 );
               },
             ),
@@ -157,6 +164,7 @@ $message
               child: CircularProgressIndicator(),
             ),
 
+          // Input area
           Padding(
             padding: const EdgeInsets.all(10),
             child: Row(
@@ -195,11 +203,15 @@ $message
 
   void _scrollDown() {
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) => _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 600),
-        curve: Curves.easeOut,
-      ),
+      (_) {
+        if (_scrollController.hasClients) {
+          _scrollController.animateTo(
+            _scrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.easeOut,
+          );
+        }
+      },
     );
   }
 
