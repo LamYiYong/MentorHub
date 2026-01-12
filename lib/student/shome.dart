@@ -37,18 +37,17 @@ class _StudentHomePageState extends State<StudentHomePage> {
         ),
       ),
 
-      // 1: Profile
-      const Center(child: Text("Profile Page", style: TextStyle(fontSize: 20))),
-
-      // 2: Study
+      // 1: Study
       const Center(child: Text("Study Page", style: TextStyle(fontSize: 20))),
 
-      // 3: Chat
+      // 2: Mentor AI
       const ChatPage(),
 
-      // 4: Message ⭐ NEW
+      // 3: Message
       const Center(child: Text("Message Page", style: TextStyle(fontSize: 20))),
-      // 4: Settings (Logout)
+      
+      // 4: Profile
+      //Logout Button
       Center(
         child: ElevatedButton(
           onPressed: () async {
@@ -85,13 +84,10 @@ class _StudentHomePageState extends State<StudentHomePage> {
 
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: "Study"),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
+          BottomNavigationBarItem(icon: Icon(Icons.smart_toy), label: "Mentor AI"),
           BottomNavigationBarItem(icon: Icon(Icons.message), label: "Message"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Settings",
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile",
           ),
         ],
       ),
